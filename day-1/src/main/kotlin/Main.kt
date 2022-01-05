@@ -12,11 +12,12 @@ fun part1(filePath: String): Int {
     var totalIncreases = 0
 
     // Using file directly because this isn't real life
-    File(filePath).useLines { lines -> lines.forEach {
+    File(filePath).readLines().forEach {
         if (previousDepth != -1 && previousDepth < it.toInt())
             totalIncreases += 1
         previousDepth = it.toInt()
-    } }
+    }
+
     return totalIncreases
 }
 
@@ -25,11 +26,12 @@ fun part2(filePath: String): Int {
     var totalIncreases = 0
 
     // Using file directly because this isn't real life
-    File(filePath).useLines { lines -> lines.forEach {
-        if (previousDepth != -1 && previousDepth < it.toInt())
-            totalIncreases += 1
-        previousDepth = it.toInt()
-    } }
+    /*
+    for (line in File(fileName).readLines()) {
+      // statement(s)
+    }
+     */
+    
     return totalIncreases
 }
 
