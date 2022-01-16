@@ -25,6 +25,9 @@ fun part2(filePath: String): Int {
     var previousDepth = -1
     var totalIncreases = 0
 
+    var depthA = 0
+    var depthB = 0
+    var depthCurrent = -1
     // Using file directly because this isn't real life
     /*
     for (line in File(fileName).readLines()) {
