@@ -17,9 +17,9 @@ fun main() {
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day0${dayNum}_test")
     check(part1(testInput) == 0)
-    check(part2(testInput) == 0)
+    //check(part2(testInput) == 0)
 
     val input = readInput("Day0${dayNum}_input")
     println(part1(input))
-    println(part2(input))
+    //println(part2(input))
 }
