@@ -1,6 +1,18 @@
 class BinaryBoarding(rows: Int, columns: Int) {
     private val rowRange = (0 until rows).toList()
     private val columnRange = (0 until columns).toList()
+    private var seatIds = ArrayList<Int>(rows * columns)
+
+    init {
+        var counter = 0
+        for (row in rowRange) {
+            for (column in columnRange) {
+                // Generating a list of seat IDs for the flight
+                seatIds.add(row * 8 + column)
+                ++counter
+            }
+        }
+    }
 
     fun findMySeat(boardingPass: String): Int {
         var rowRange = rowRange
@@ -27,11 +39,20 @@ class BinaryBoarding(rows: Int, columns: Int) {
                 columnRange = columnRange.drop(columnRange.size/2)
             }
         }
+        var mySeatID = rowRange[0] * 8 + columnRange[0]
+        seatsTaken(mySeatID)
+        return mySeatID
+    }
 
-        return rowRange[0] * 8 + columnRange[0]
+    fun seatsTaken(seatID: Int): Boolean {
+        return seatIds.remove(seatID)
     }
 
     fun getRows(): Int {
         return rowRange.last() + 1
+    }
+
+    fun getAvailableSeats(): ArrayList<Int> {
+        return seatIds
     }
 }

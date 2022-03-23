@@ -5,8 +5,8 @@ fun main() {
     */
     fun part1(input: List<String>): Int {
         var toiletSeat = 0
+        var test = BinaryBoarding(128, 8)
         for (line in input) {
-            var test = BinaryBoarding(128, 8)
             var newSeat = test.findMySeat(line)
             if (newSeat > toiletSeat) {
                 toiletSeat = newSeat
@@ -20,6 +20,19 @@ fun main() {
         part 2 comment
     */
     fun part2(input: List<String>): Int {
+        var mySeat = 0
+        var test = BinaryBoarding(128, 8)
+        for (line in input) {
+            test.findMySeat(line)
+        }
+        for (seat in test.getAvailableSeats()) {
+            if (seat == mySeat) {
+                ++mySeat
+            }
+            else {
+                return seat
+            }
+        }
         return 0
     }
 
@@ -31,5 +44,5 @@ fun main() {
 
     val input = readInput("Day${dayNum}_input")
     println(part1(input))
-    //println(part2(input))
+    println(part2(input))
 }
