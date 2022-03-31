@@ -44,7 +44,7 @@ class BinaryBoarding(rows: Int, columns: Int) {
         return mySeatID
     }
 
-    fun seatsTaken(seatID: Int): Boolean {
+    private fun seatsTaken(seatID: Int): Boolean {
         return seatIds.remove(seatID)
     }
 
