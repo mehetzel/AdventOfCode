@@ -1,4 +1,5 @@
 class BinaryBoarding(rows: Int, columns: Int) {
+    // Unsure if this would be considered 'proper'
     private val rowRange = (0 until rows).toList()
     private val columnRange = (0 until columns).toList()
     private var seatIds = ArrayList<Int>(rows * columns)
@@ -44,6 +45,7 @@ class BinaryBoarding(rows: Int, columns: Int) {
         return mySeatID
     }
 
+    // Forrest Gump
     private fun seatsTaken(seatID: Int): Boolean {
         return seatIds.remove(seatID)
     }
